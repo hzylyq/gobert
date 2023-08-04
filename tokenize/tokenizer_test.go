@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/buckhx/gobert/tokenize"
-	"github.com/buckhx/gobert/tokenize/vocab"
+	"github.com/hzylyq/gobert/tokenize"
+	"github.com/hzylyq/gobert/tokenize/vocab"
 )
 
 func TestBasic(t *testing.T) {
@@ -40,7 +40,7 @@ func TestWordpiece(t *testing.T) {
 		{"unwanted running", []string{"un", "##want", "##ed", "runn", "##ing"}},
 		// TODO determine if these tests are correct
 		//	{"unwantedX", []string{"[UNK]"}},
-		//{"unwantedX running", []string{"[UNK]", "runn", "##ing"}},
+		// {"unwantedX running", []string{"[UNK]", "runn", "##ing"}},
 	} {
 		tkz := tokenize.NewWordpiece(voc)
 		toks := tkz.Tokenize(test.text)

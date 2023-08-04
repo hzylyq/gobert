@@ -4,10 +4,11 @@ import (
 	"log"
 	"strings"
 
-	"github.com/buckhx/gobert/model"
 	"golang.org/x/sync/errgroup"
 	"gonum.org/v1/gonum/mat"
 	"gonum.org/v1/gonum/stat"
+
+	"github.com/hzylyq/gobert/model"
 )
 
 // engine is a simple semantic search engine for demonstrating using a BERT model

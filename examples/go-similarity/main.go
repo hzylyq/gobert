@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/buckhx/gobert/model"
 	"gonum.org/v1/gonum/mat"
 	"gonum.org/v1/gonum/stat"
+
+	"github.com/hzylyq/gobert/model"
 )
 
 func main() {

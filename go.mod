@@ -1,4 +1,4 @@
-module github.com/buckhx/gobert
+module github.com/hzylyq/gobert
 
 go 1.20
 

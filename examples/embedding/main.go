@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/buckhx/gobert/model"
+	"github.com/hzylyq/gobert/model"
 )
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 			if toks[0] == 0 {
 				break // Hack to not print whole vector
 			}
-			//fmt.Printf("\t%s\t[%d]float32\t%v...\n", fs[i].Tokens[j], len(toks), toks[:8])
+			// fmt.Printf("\t%s\t[%d]float32\t%v...\n", fs[i].Tokens[j], len(toks), toks[:8])
 			fmt.Printf("\t%s\t%v...\n", fs[i].Tokens[j], toks[:8])
 		}
 	}

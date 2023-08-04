@@ -4,15 +4,16 @@ package model
 import (
 	"fmt"
 
-	"github.com/buckhx/gobert/model/estimator"
-	"github.com/buckhx/gobert/tokenize"
-	"github.com/buckhx/gobert/tokenize/vocab"
 	tf "github.com/tensorflow/tensorflow/tensorflow/go"
+
+	"github.com/hzylyq/gobert/model/estimator"
+	"github.com/hzylyq/gobert/tokenize"
+	"github.com/hzylyq/gobert/tokenize/vocab"
 )
 
 // Operation names
 const (
-	//#	UniqueIDsOp    = "unique_ids"
+	// #	UniqueIDsOp    = "unique_ids"
 	InputIDsOp     = "input_ids"
 	InputMaskOp    = "input_mask"
 	InputTypeIDsOp = "input_type_ids"
@@ -173,7 +174,7 @@ func tensors(fs ...tokenize.Feature) (map[string]*tf.Tensor, error) {
 		return nil, err
 	}
 	return map[string]*tf.Tensor{
-		//UniqueIDsOp:    u,
+		// UniqueIDsOp:    u,
 		InputIDsOp:     t,
 		InputMaskOp:    m,
 		InputTypeIDsOp: s,

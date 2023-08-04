@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/buckhx/gobert/tokenize"
-	"github.com/buckhx/gobert/tokenize/vocab"
 	tf "github.com/tensorflow/tensorflow/tensorflow/go"
+
+	"github.com/hzylyq/gobert/tokenize"
+	"github.com/hzylyq/gobert/tokenize/vocab"
 )
 
 func main() {

@@ -1,7 +1,7 @@
 package tokenize
 
 import (
-	"github.com/buckhx/gobert/tokenize/vocab"
+	"github.com/hzylyq/gobert/tokenize/vocab"
 )
 
 // DefaultMaxWordChars is the max length of a token for it to be tokenized, otherwise marked as unknown
