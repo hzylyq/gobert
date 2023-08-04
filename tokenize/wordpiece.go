@@ -1,8 +1,6 @@
 package tokenize
 
 import (
-	"fmt"
-
 	"github.com/buckhx/gobert/tokenize/vocab"
 )
 
@@ -42,15 +40,45 @@ func (wp Wordpiece) Tokenize(text string) []string {
 			toks = append(toks, wp.unknownToken)
 			continue
 		}
-		for len(tok) > 0 && tok != "##" {
-			sub := wp.vocab.LongestSubstring(tok)
-			if sub == "" {
-				toks = append(toks, wp.unknownToken)
+		isBad := false
+		start := 0
+		var subTokens []string
+		for start < len(tok) {
+			end := len(tok)
+			curSubstr := ""
+			for start < end {
+				substr := tok[start:end]
+				if start > 0 {
+					substr = "##" + substr
+				}
+				if wp.vocab.HasToken(substr) {
+					curSubstr = substr
+					break
+				}
+				end--
+			}
+			if curSubstr == "" {
+				isBad = true
 				break
 			}
-			toks = append(toks, sub)
-			tok = fmt.Sprintf("##%s", tok[len(sub):])
+			subTokens = append(subTokens, curSubstr)
+			start = end
 		}
+		if isBad {
+			toks = append(toks, wp.unknownToken)
+		} else {
+			toks = append(toks, subTokens...)
+		}
+
+		// for len(tok) > 0 && tok != "##" {
+		// 	sub := wp.vocab.LongestSubstring(tok)
+		// 	if sub == "" {
+		// 		toks = append(toks, wp.unknownToken)
+		// 		break
+		// 	}
+		// 	toks = append(toks, sub)
+		// 	tok = fmt.Sprintf("##%s", tok[len(sub):])
+		// }
 	}
 	return toks
 }

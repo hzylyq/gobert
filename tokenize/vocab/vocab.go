@@ -79,12 +79,13 @@ func (v Dict) HasID(id ID) bool {
 		if v =
 	}
 }
+*/
 
 // HasToken returns true if the
 func (v Dict) HasToken(token string) bool {
-
+	_, ok := v.tokens[token]
+	return ok
 }
-*/
 
 // Size returns the size of the vocabulary
 func (v Dict) Size() int {
